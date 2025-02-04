@@ -167,7 +167,7 @@ body {
     justify-content: center;
     background: #f8f9fa;
     text-align: center;
-    background-image: linear-gradient(rgba(118, 117, 117, 0.5), rgba(88, 88, 88, 0.5)), url('images/download.jpg');
+    background-image:  url('images/Untitled\ design.png');
     background-size: cover; /* Cover the entire section */
     background-position: center; /* Center the image */
     color: white; /* Change text color for readability */
