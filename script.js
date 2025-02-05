@@ -37,38 +37,3 @@ projects.forEach(project => {
     `;
     projectGrid.appendChild(card);
 });
-
-// Form submission
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Thank you! Your message has been sent.');
-    this.reset();
-});
-
-document.getElementById('contact-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const formData = {
-      name: document.querySelector('input[name="name"]').value,
-      email: document.querySelector('input[name="email"]').value,
-      message: document.querySelector('textarea[name="message"]').value
-    };
-  
-    try {
-      const response = await fetch('http://localhost:5000/send_email', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
-      
-      const result = await response.json();
-      if (result.success) {
-        alert('Message sent!');
-        document.getElementById('contact-form').reset();
-      } else {
-        alert('Error: ' + result.error);
-      }
-    } catch (error) {
-      alert('Failed to send message.');
-    }
-  });
