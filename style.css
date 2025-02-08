@@ -440,24 +440,3 @@ a, button {
     }
 }
 
-/* Add viewport meta tag in HTML head */
-/* <meta name="viewport" content="width=device-width, initial-scale=1.0"> */
-
-/* Existing hero section modifications */
-.hero-content {
-    flex-direction: column;
-    padding: 2rem 1rem;
-}
-
-.hero-image {
-    text-align: center;
-    order: -1; /* Moves image above text on mobile */
-}
-
-.hero-image img {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    border-width: 3px;
-}
-
