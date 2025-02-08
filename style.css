@@ -342,7 +342,8 @@ a, button {
     .navbar {
         flex-direction: column;
         align-items: center;
-        padding: 1rem 0;
+        height: 7rem;
+        width: -webkit-fill-available;
     }
 
     .nav-links {
@@ -430,13 +431,6 @@ a, button {
         font-size: 1.5rem;
     }
 
-    /* General Adjustments */
-    section {
-        padding: 2rem 1rem;
-    }
-
-    h2 {
-        font-size: 1.8rem;
-    }
+    
 }
 
