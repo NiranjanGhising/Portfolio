@@ -15,7 +15,7 @@ body {
 /* Header - Hire Me Button */
 .navbar {
     background: #fff;
-    padding: 1rem;
+    padding: 0.5rem;
     position: fixed;
     width: 100%;
     top: 0;
@@ -31,9 +31,9 @@ body {
 
 
 .logo-img {
-    height: 80px; /* Adjust logo size */
+    height: 60px; /* Adjust logo size */
     width: auto;
-    margin: -5rem;
+    margin: -1rem;
   }
 
 
@@ -84,7 +84,7 @@ body {
 /* Navigation */
 .navbar {
     background: #fff;
-    padding: 0rem;
+    padding: rem;
     position: fixed;
     width: 100%;
     top: 0;
@@ -99,8 +99,8 @@ body {
     display: flex;
     
     gap: 5rem;
-    margin: -50px;
-    padding: 0;
+    margin: -3rem;
+    padding: 20px;
     position: absolute;
     left: 50%;
     transform: translate(-50%);
