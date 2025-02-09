@@ -33,6 +33,7 @@ body {
 .logo-img {
     height: 80px; /* Adjust logo size */
     width: auto;
+    margin: -5rem;
   }
 
 
@@ -349,8 +350,8 @@ a, button {
     .nav-links {
         position: static;
         transform: none;
-        gap: 2rem;
-        margin: 1rem 0;
+        gap: 0rem;
+        margin: 1.5rem 0;
         flex-wrap: wrap;
         justify-content: center;
     }
@@ -410,7 +411,9 @@ a, button {
         padding: 0.5rem;
         font-size: 0.9rem;
     }
-
+    .logo-img {
+        margin: -5rem;
+    }
     /* Hero Section */
     .hero-content h1 {
         font-size: 2rem;
