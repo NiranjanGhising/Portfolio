@@ -336,7 +336,21 @@ a, button {
     min-height: 48px;
 }
 
-
+footer {
+    background: #333;
+    color: #e9e6e6;
+    text-align: center;
+    padding: 1rem 0;
+}
+footer .social-links {
+    margin-bottom: 1rem;
+    background-color: #333;
+}
+footer a {
+    color: #f1eded;
+    margin: 0 0.5rem;
+    text-decoration: none;
+}
 /* Mobile Responsive Styles */
 @media screen and (max-width: 768px) {
     /* Navigation */
