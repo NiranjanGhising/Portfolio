@@ -14,13 +14,13 @@ const projects = [
         title: "Python Project (Basic)",
         description: "Some Basic Python Projects",
         image: "images/python.jpg",
-        link: "https://github.com/NiranjanGhising/rock_paper_scissor.py"
+        link: "https://github.com/NiranjanGhising/Basic-Python-Projects"
     },
     {
         title: "Python Project (intermediate)",
         description: "Some intermediate Python Projects",
         image: "images/python.jpg",
-        link: "https://github.com/NiranjanGhising/rock_paper_scissor.py"
+        link: "https://github.com/NiranjanGhising/Python-Intermediate-Projects"
     },
 ];
 
