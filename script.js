@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "Student Performance Analysis System",
             description: "Developed a command-line application to manage and analyze student academic records, providing insights for educational improvement.",
-            image: "images/student_analysis.jpg",
             link: "https://github.com/NiranjanGhising/Student_Data_Analysis",
             details: {
                 overview: "Developed a comprehensive command-line application to streamline student academic record management and analysis. This system provides educators and administrators with a powerful tool for data-driven decision-making, automating data analysis and visualization to enhance the accuracy of performance assessments and facilitate targeted educational strategies.",
@@ -34,11 +33,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const card = document.createElement('div');
         card.className = 'project-card';
         card.innerHTML = `
-            <img src="${project.image}" alt="${project.title}" loading="lazy">
-            <h1>${project.title}</h1>
+            <h2>${project.title}</h2>
             <p>${project.description}</p>
             <button class="project-button view-details-button" data-project-index="${index}">View Details</button>
         `;
+        card.tabIndex = 0; // Make card focusable
+        card.setAttribute('aria-label', project.title);
         projectGrid.appendChild(card);
     });
 
@@ -57,17 +57,26 @@ document.addEventListener('DOMContentLoaded', () => {
             modalProjectLink.href = project.link;
 
             projectModal.style.display = 'block';
+            setTimeout(() => projectModal.classList.add('modal-fade-in'), 10); // Fade in
         }
     });
 
     // Close Modal
-    closeButton.addEventListener('click', () => {
-        projectModal.style.display = 'none';
-    });
-
+    function closeModal() {
+        projectModal.classList.remove('modal-fade-in');
+        setTimeout(() => {
+            projectModal.style.display = 'none';
+        }, 200);
+    }
+    closeButton.addEventListener('click', closeModal);
     window.addEventListener('click', (e) => {
         if (e.target == projectModal) {
-            projectModal.style.display = 'none';
+            closeModal();
+        }
+    });
+    window.addEventListener('keydown', (e) => {
+        if (projectModal.style.display === 'block' && e.key === 'Escape') {
+            closeModal();
         }
     });
 
@@ -118,10 +127,64 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // When the user clicks on the button, scroll to the top of the document
         backToTopBtn.addEventListener('click', () => {
-            document.body.scrollTop = 0; // For Safari
-            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     } else {
         console.error("Error: Back to Top button not found in the DOM.");
     }
+
+    // Typing Animation for Hero Section
+    const typingElement = document.getElementById('typing-animation');
+    if (typingElement) {
+        const typingTexts = [
+            "Aspiring Data Analyst | Python & SQL Enthusiast",
+            "Turning Data into Insights",
+            "Passionate about Data Visualization & Analytics",
+            "Ready to Solve Real-World Problems"
+        ];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 70;
+        let pauseTime = 1200;
+
+        function type() {
+            const currentText = typingTexts[textIndex];
+            if (isDeleting) {
+                typingElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    textIndex = (textIndex + 1) % typingTexts.length;
+                    setTimeout(type, 400);
+                } else {
+                    setTimeout(type, typingSpeed / 2);
+                }
+            } else {
+                typingElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+                if (charIndex === currentText.length) {
+                    isDeleting = true;
+                    setTimeout(type, pauseTime);
+                } else {
+                    setTimeout(type, typingSpeed);
+                }
+            }
+        }
+        type();
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a.nav-anchor').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    });
 });
