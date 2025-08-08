@@ -6,15 +6,53 @@
     <link rel="icon" type="image/jpg" href="images/NG_logo.png">
     <title>Niranjan Ghising</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Social and PWA Meta -->
+    <link rel="canonical" href="https://niranjanghising.com.np/">
+    <meta name="theme-color" content="#007bff">
+    <!-- Preconnects for faster font/icon loads -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://plausible.io">
+    <!-- Preload hero image for faster LCP -->
+    <link rel="preload" as="image" href="images/normalNiranjan.jpg" imagesrcset="images/normalNiranjan.jpg 1x" imagesizes="(max-width: 768px) 300px, 550px">
+    <meta property="og:title" content="Niranjan Ghising — Portfolio">
+    <meta property="og:description" content="Aspiring Data Analyst. Python • SQL • Data Visualization. Explore projects, skills, and certifications.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://niranjanghising.com.np/">
+    <meta property="og:image" content="https://niranjanghising.com.np/images/NG_logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Niranjan Ghising — Portfolio">
+    <meta name="twitter:description" content="Python • SQL • Data Visualization. Explore projects and certifications.">
+    <meta name="twitter:image" content="https://niranjanghising.com.np/images/NG_logo.png">
+    <link rel="manifest" href="manifest.json">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <meta name="description" content="Niranjan Ghising - Aspiring Data Analyst portfolio. Explore my projects, skills, certifications, and contact information. Specialized in Python, SQL, and data visualization.">
     <meta name="keywords" content="Niranjan Ghising, Data Analyst, Python, SQL, Portfolio, Data Visualization, Projects, Kathmandu, Nepal, Analytics, Resume, GitHub, LinkedIn">
-    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Niranjan Ghising",
+      "url": "https://niranjanghising.com.np/",
+      "image": "https://niranjanghising.com.np/images/normalNiranjan.jpg",
+      "jobTitle": "Aspiring Data Analyst",
+      "sameAs": [
+        "https://github.com/NiranjanGhising",
+        "https://www.linkedin.com/in/niranjan-ghising-04500424a/"
+      ]
+    }
+    </script>
+    <!-- Analytics -->
+    <script defer data-domain="niranjanghising.com.np" src="https://plausible.io/js/script.file-downloads.hash.outbound-links.pageview-props.revenue.tagged-events.js"></script>
+    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+
 </head>
 <body>
+    <a href="#home" class="skip-link">Skip to content</a>
     <!-- Scroll Progress Bar -->
     <div id="scrollProgressBar"></div>
     <div class="hero-animated-icons">
@@ -70,7 +108,7 @@
                     <a href="#projects" class="cta-button">View My Work</a>
                 </div>
                 <div class="hero-image">
-                    <img src="images/normalNiranjan.jpg" alt="A picture of Niranjan Ghising smiling in a casual setting" loading="lazy">
+                    <img src="images/normalNiranjan.jpg" alt="A picture of Niranjan Ghising smiling in a casual setting" width="550" height="550" decoding="async">
                 </div>
             </div>
         </section>
@@ -187,7 +225,7 @@
             <h2 class="section-title">Get In Touch</h2>
             <div class="contact-container">
                 <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out to me.</p>
-                <form action="https://formspree.io/f/mvgzqogw" method="POST" class="contact-form">
+                <form id="contactForm" action="https://formspree.io/f/mvgzqogw" method="POST" class="contact-form" novalidate>
                     <div class="input-group">
                         <i class="fas fa-user"></i>
                         <input type="text" name="name" placeholder="Your Name" required>
@@ -200,6 +238,9 @@
                         <i class="fas fa-comment-alt"></i>
                         <textarea name="message" placeholder="Your Message" required></textarea>
                     </div>
+                    <!-- Honeypot field to reduce spam -->
+                    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;" />
+                    <div id="contactStatus" class="form-status" role="status" aria-live="polite"></div>
                     <button type="submit" class="btn-submit">Send Message</button>
                 </form>
             </div>
@@ -219,9 +260,9 @@
     </footer>
 
     <!-- Project Detail Modal -->
-    <div id="projectModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
+    <div id="projectModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalProjectTitle">
+        <div class="modal-content" tabindex="-1">
+            <span class="close-button" aria-label="Close dialog">&times;</span>
             <h2 id="modalProjectTitle"></h2>
             <div class="modal-body">
                 <p id="modalProjectOverview"></p>

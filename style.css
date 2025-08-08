@@ -564,6 +564,15 @@ input:checked + .slider:before {
     filter: brightness(85%); /* Slightly darken the accent color */
 }
 
+/* Status Messages */
+.form-status {
+    margin: 0.5rem 0 1rem;
+    min-height: 1.25rem;
+    font-size: 0.95rem;
+}
+.form-status.success { color: #1b8f2e; }
+.form-status.error { color: #c62828; }
+
 /* Footer */
 footer {
     background: var(--footer-background-color);
@@ -762,6 +771,35 @@ footer {
     }
 }
 
+/* Skip link for keyboard users */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--accent-color);
+    color: #fff;
+    padding: 0.75rem 1rem;
+    z-index: 1000;
+    border-radius: 6px;
+}
+.skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+    outline: 2px solid #fff;
+}
+
+/* Scroll-reveal animation */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 500ms ease, transform 500ms ease; }
+.reveal.reveal-visible { opacity: 1; transform: translateY(0); }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}
+
+/* Prevent page scroll when modal is open */
+body.modal-open { overflow: hidden; }
+
 /* Back to Top Button */
 #backToTopBtn {
     display: none; /* Hidden by default */
@@ -835,16 +873,7 @@ footer {
     font-size: 1.4rem;
 }
 
-.modal-content p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 10px;
-}
-
-.modal-content .project-button {
-    margin-top: 20px;
-    display: inline-block;
-}
+.modal
 
 .close-button {
     color: var(--text-color);
