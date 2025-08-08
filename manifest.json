@@ -1,0 +1,12 @@
+{
+  "name": "Niranjan Ghising — Portfolio",
+  "short_name": "Niranjan",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#1a1a1a",
+  "theme_color": "#007bff",
+  "icons": [
+    { "src": "images/NG_logo.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "images/NG_logo.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
